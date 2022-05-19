@@ -61,7 +61,7 @@ public class Fraction {
          e.printStackTrace();
       }
           } else {
-             System.out.println("Two Integers must be given.\n gradel runFrac -Pnumerator=[Value] -Pdenominator=[Value]");
+             System.out.println("Exactly 2 arguments should be provided.\n gradel runFrac -Pnumerator=[Value] -Pdenominator=[Value]");
    }
 }
 
