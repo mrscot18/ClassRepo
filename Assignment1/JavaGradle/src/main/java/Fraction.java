@@ -38,14 +38,19 @@ public class Fraction {
    }
 
    public static void main (String args[]) {
+      if (args.length == 2
+          int pDenominator = 1;
+          int pNumerator = 1;
       try {
          // create a new instance
          // Fraction *frac = [[Fraction alloc] init];
          Fraction frac = new Fraction();
-
+         
+         pDenominator = Integer.parseInt(args[0]);
+         pNumerator = Integer.parseInt(args[0]);
          // set the values
-         frac.setNumerator(1);
-         frac.setDenominator(3);
+         frac.setNumerator(pNumerator);
+         frac.setDenominator(pDenominator);
 
          // print it
          System.out.print("The fraction is: ");
@@ -55,6 +60,8 @@ public class Fraction {
       }catch(Exception e) {
          e.printStackTrace();
       }
+          } else {
+             System.out.println("Two Integers must be given.\n gradel runFrac -Pnumerator=[Value] -Pdenominator=[Value]");
    }
 }
 
