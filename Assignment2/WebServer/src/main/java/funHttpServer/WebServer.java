@@ -272,6 +272,91 @@ class WebServer {
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
+	    
+	    } else if(request.contains("splitString?")){
+					Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+
+			
+					try {
+
+						
+						query_pairs = splitQuery(request.replace("splitString?", ""));
+
+					
+						if (query_pairs.containsKey("str1") & query_pairs.containsKey("str2")) {
+
+							//Get and Convert values to integers.
+							String str1 = query_pairs.get("str1");
+							String str2 = query_pairs.get("str2");
+							
+	
+
+							
+							builder.append("HTTP/1.1 200 OK\n");
+							builder.append("Content-Type: text/html; charset=utf-8\n");
+							builder.append("\n");
+							builder.append(str1 + "  " + str2 + " = " + result);
+						} else {
+						
+							builder.append("HTTP/1.1 400 Bad Request\n");
+							builder.append("Content-Type: text/html; charset=utf-8\n");
+							builder.append("\n");
+							builder.append("Add requires two parameters and arguments,  str1=[String] and str2=[String].\n");
+							builder.append("\n");
+							builder.append("Example: splitString?str1=SER&str2=Summer");
+						}
+					} catch (Exception exception) {
+						builder.append("HTTP/1.1 400 Bad Request\n");
+						builder.append("Content-Type: text/html; charset=utf-8\n");
+						builder.append("\n");
+						builder.append("Add requires two parameters and arguments, str1=[String] and str2=[String].\n");
+						builder.append("\n");
+						builder.append("Example: splitString?str1=SER&str2=Summer");
+					}
+				} else if(request.contains("splitString?")){
+					Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+
+					
+					try {
+
+						
+						query_pairs = splitQuery(request.replace("mod?", ""));
+
+					
+						if (query_pairs.containsKey("num1") & query_pairs.containsKey("num2")) {
+
+							//Get and Convert values to integers.
+							String num1 = query_pairs.get("num1");
+							String num2 = query_pairs.get("num2");
+
+							float result = num1 % num2;
+
+							//Display successful result
+							builder.append("HTTP/1.1 200 OK\n");
+							builder.append("Content-Type: text/html; charset=utf-8\n");
+							builder.append("\n");
+							builder.append(num1 + " % " + num2 + " = " + result);
+											
+							);
+						} else {
+							//Display error message
+							builder.append("HTTP/1.1 400 Bad Request\n");
+							builder.append("Content-Type: text/html; charset=utf-8\n");
+							builder.append("\n");
+							builder.append("Add requires two parameters with floating value arguments, num1=[Float] and num2=[Float].\n");
+							builder.append("\n");
+							builder.append("Example: add?num1=2&num2=3");
+						}
+					} catch (Exception exception) {
+						builder.append("HTTP/1.1 400 Bad Request\n");
+						builder.append("Content-Type: text/html; charset=utf-8\n");
+						builder.append("\n");
+						builder.append("Add requires two parameters with floating value arguments, num1=[Float] and num2=[Float].\n");
+							builder.append("\n");
+							builder.append("Example: add?num1=2&num2=3");
+					}
+				}
+	    
         } else {
           // if the request is not recognized at all
 
