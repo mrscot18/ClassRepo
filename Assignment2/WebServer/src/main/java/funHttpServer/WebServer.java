@@ -214,9 +214,23 @@ class WebServer {
           builder.append("\n");
           builder.append("Result is: " + result);
 
-          // TODO: Include error handling here with a correct error code and
-          // a response that makes sense
+        } else {
+           builder.append("HTTP/1.1 400 Bad Request\n");
+							builder.append("Content-Type: text/html; charset=utf-8\n");
+							builder.append("\n");
+							builder.append("Multiply requires two parameters with integer arguments, num1=[Integer] and num2=[Integer].\n");
+							builder.append("\n");
+							builder.append("Example: multiply?num1=3&num2=5");
 
+        }
+      } catch (Exception exception) {
+         builder.append("HTTP/1.1 400 Bad Request\n");
+						builder.append("Content-Type: text/html; charset=utf-8\n");
+						builder.append("\n");
+						builder.append("Multiply requires two parameters with integer arguments, num1=[Integer] and num2=[Integer].\n");
+						builder.append("\n");
+						builder.append("Example: multiply?num1=3&num2=5");
+      }
         } else if (request.contains("github?")) {
           // pulls the query from the request and runs it with GitHub's REST API
           // check out https://docs.github.com/rest/reference/
@@ -227,9 +241,22 @@ class WebServer {
           //     "/repos/OWNERNAME/REPONAME/contributors"
 
           Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+       try {
           query_pairs = splitQuery(request.replace("github?", ""));
           String json = fetchURL("https://api.github.com/" + query_pairs.get("query"));
           System.out.println(json);
+          
+          JSONArray userRepos = new JSONArray(json);
+          StringBuilder toPrint = new StringBuilder();
+          for (int i = 0; i < userRepos.length(); i++) {
+
+							JSONObj repo = userRepos.getJSONObj(i);
+							String repoName = repo.getString("name");
+							JSONObj owner = repo.getJSONObj("owner");
+							String ownername = owner.getString("login");
+							int ownerID = owner.getInt("id");
+							toPrint.append(ownername).append(",").append(ownerID).append("->").append(repoName).append("||");
+						}
 
           builder.append("HTTP/1.1 200 OK\n");
           builder.append("Content-Type: text/html; charset=utf-8\n");
@@ -237,7 +264,14 @@ class WebServer {
           builder.append("Check the todos mentioned in the Java source file");
           // TODO: Parse the JSON returned by your fetch and create an appropriate
           // response based on what the assignment document asks for
-
+} catch (UnsupportedEncodingException e) {
+						builder.append("HTTP/1.1 404 Not Found\n");
+						builder.append("Content-Type: text/html; charset=utf-8\n");
+						builder.append("\n");
+						builder.append("Invalid search");
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
         } else {
           // if the request is not recognized at all
 
