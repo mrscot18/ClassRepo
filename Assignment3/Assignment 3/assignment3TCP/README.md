@@ -71,3 +71,40 @@ host = localhost
 
 Methods can be seen through the UML
 
+Protocol needs to be described in detail in the README.md:
+
+Request:
+{<user connects to the game}
+Normal Response:
+{"Please enter your name"}
+
+Request:
+{<user enters their name>}
+Normal Response:
+{"op":"Hello! ," + name + " Your first quote is being sent, enter next if you want another quote"}
+
+Request:
+{"op":"You are correct!"}
+Normal Response:
+{"<user gets +5 in the leaderboard>"}
+        
+Request:
+{<user enters "next"}
+Normal Response:
+{"op":<a new image is shown}
+  
+Request:
+{"<user enters "more">}
+Normal Response:
+{"op":<another image is sent to the user>}
+               
+ Request:
+{"<user enters "1">}
+Normal Response:
+{"op":<leaderboard is shown with the users name and points>}
+  
+Request:
+{"<user enters "2">}
+Normal Response:
+{"op":<another image is shown>}  
+  
