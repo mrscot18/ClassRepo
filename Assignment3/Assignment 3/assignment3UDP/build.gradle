@@ -1,0 +1,58 @@
+// set as java application
+apply plugin: 'application'
+
+
+
+repositories {
+    mavenCentral()
+}
+
+
+
+
+
+dependencies {
+    implementation group: 'org.json', name: 'json', version: '20200518'
+}
+
+def host = 'localhost'
+def port = 1234
+
+
+task arguments{
+
+if( project.hasProperty("host")){
+  host = project.getProperty("host")
+}
+
+if( project.hasProperty("port")){
+  port = project.getProperty("port")
+}
+
+}
+
+
+
+task ServerUDP(type: JavaExec) {
+  group 'serv'
+  description 'Displays a GUI for a game of concentration'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'Assignment3Starter.ServerUDP'
+  standardInput = System.in
+args host
+args port
+}
+
+task ClientUDP(type: JavaExec) {
+  group 'cmd'
+  description 'Displays a GUI for a game of concentration'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'Assignment3Starter.ClientUDP'
+  standardInput = System.in
+args host
+args port
+}
