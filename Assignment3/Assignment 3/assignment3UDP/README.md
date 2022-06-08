@@ -26,3 +26,18 @@ In order to complete this portion of the project, I needed to use datagram. I di
 
 
 Methods are shown within the UML
+
+ Request:
+{"<User Logs in>}
+Normal Response:
+{"op":<Please enter your name. Press 1 for quotes>}
+  
+  Request:
+{"<User enters"1">}
+Normal Response:
+{"op":<an image is sent to the user>}
+  
+  Request:
+{"<user enters "done">}
+Normal Response:
+{"op":<"Client is done will be exiting>}
