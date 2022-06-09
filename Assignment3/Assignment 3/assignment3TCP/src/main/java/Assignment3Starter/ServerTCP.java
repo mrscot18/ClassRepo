@@ -20,7 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class ServerSideTCP {
+public class ServerTCP {
     static ServerSocket listenServerSocket;
     static DataInputStream dis;
     static DataOutputStream dos;
