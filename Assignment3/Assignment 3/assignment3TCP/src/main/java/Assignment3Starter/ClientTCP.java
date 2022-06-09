@@ -20,8 +20,7 @@ public class ClientTCP {
       @Override
       public void run() {
         System.out.println("Your time is up");
-        System.out.println("Your time is up");
-        System.out.println("Your time is up");
+        System.out.println("Congrats! You have finshed this round!");
         System.out.println("The game will not start, reset");
       }
     };
@@ -36,7 +35,7 @@ public class ClientTCP {
 
       System.out.println("You have 1 minute to guess or timer will run out, if you type '1' you get the leaderboard");
       System.out.println("Type 'next' for your next quote, type 'more' for more quotes");
-      System.out.println("If you want to give up... type 'answer' to respond to server");
+      System.out.println("If you want to give up... type 'answer' to speak to the server");
 
 
 
