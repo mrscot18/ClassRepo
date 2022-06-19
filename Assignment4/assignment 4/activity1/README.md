@@ -46,4 +46,4 @@ This should allow you in to the 'game' with multiple clients.
 
 I believe I was able to accomplish all parts of this assignment. "add <string>" adds a string to a list, "pop" removes the top string from that list, "display" displays the elements of the list, "count" returns the number of elements in the list, and lastly, "switch" switches elements at a given index. I was also able to make it so that multiple clients could connect to a server and recieve messages back from the server. 
 
-Screencast: 
+Screencast: https://youtu.be/oOH1PzTOd30
