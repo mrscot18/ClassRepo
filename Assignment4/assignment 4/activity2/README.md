@@ -71,3 +71,5 @@ Run Java:
 Java
 gradle runClient -Pport=9099 -Phost='localhost'
 gradle runServer -Pport=9099
+
+The program focuses on allowing a client to play a game. This game will reveal pieces of an image when you answer a task correctly. There are 9 tasks that you can complete to reveal the final image. The tasks are clever/created. You are able to see a leader board that should keep track of your winnings. 
