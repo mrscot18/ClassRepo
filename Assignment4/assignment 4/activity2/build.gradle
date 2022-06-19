@@ -17,10 +17,9 @@ dependencies {
 }
 
 protobuf {
-  protoc {
-    artifact = 'com.google.protobuf:protoc:3.14.0:osx-x86_64'
-  }
-}
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.13.0'
+    }
 }
  def host = 'localhost'
  def port = 9099
@@ -55,5 +54,7 @@ task runServer(type: JavaExec) {
   args port
   args '1000' // sleep delay will always be this
 }
+
+
 
 
