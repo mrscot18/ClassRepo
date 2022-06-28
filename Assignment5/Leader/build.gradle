@@ -1,0 +1,67 @@
+// set as java application
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+   // https://mvnrepository.com/artifact/org.json/json
+implementation group: 'org.json', name: 'json', version: '20200518'
+
+// implementation class 'org.apache.zookeeper:zookeeper:3.4.14'
+}
+
+//define main class
+mainClassName = 'NodeStarter'
+
+
+def money = 1000;
+
+task arguments {
+    if (project.hasProperty("money")) {
+      host = project.getProperty("money")
+    }
+    // if (project.hasProperty("port")) {
+    //   port = project.getProperty("port")
+    // }
+}
+
+
+
+task Node1(type: JavaExec) {
+  group 'simple'
+  description 'Base sample'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'mergeSort.Bank'
+  standardInput = System.in
+  args 8000
+}
+
+task Node2(type: JavaExec) {
+  group 'simple'
+  description 'Base sample'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'mergeSort.Consensus'
+  standardInput = System.in
+  args 7000
+  args 8000
+  args 8001
+
+}
+task Client(type: JavaExec) {
+  group 'simple'
+  description 'Base sample'
+
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = 'mergeSort.Client'
+  standardInput = System.in
+
+  args 7000
+  args "localhost"
+}

@@ -1,0 +1,48 @@
+README
+
+Must follow these steps to run the code:
+
+Step 1: open 4 terminals
+
+Step 2: 
+
+Run gradle Node1 --args=8000
+
+Step 3: 
+
+Run gradle Node1 --args=8001
+
+Step 4: 
+
+Run gradle Node2
+
+Step 5:
+ 
+Run gradle Client
+
+In order to ensure that the code runs correctly you must first run node 1 on port 8001 and 8000, and then run the consensus (node 2) and then the client. 
+
+
+Explain the project: This project is a simple banking program that allows for two nodes to decide whether or not a client is allowed to payback money, or receive money from the bank. The nodes must agree unanimously in order for the client to be able to proceed. 
+1.a.  Accomplished
+1.b.  Accomplished
+1.c.  Accomplished
+2.  Accomplished
+4. Accomplished
+5. Accomplished
+6. Accomplished
+7. Accomplished
+8. Accomplished
+9.  Accomplished
+10.a.  Accomplished
+10.b.  Accomplished Partially
+10.c.  Accomplished
+10.e.  Accomplished
+10.f.  Accomplished
+11.a.  Accomplished
+11.b.  Accomplished
+11.c.  Accomplished
+12.  Accomplished
+
+
+Explain the protocol: This program runs using a consensus. This means that the nodes are able to communicate back and forth and allows them to come to an agreement on what the client can and cannot do. This information is then relied to the client through the leader and the process continues. 
