@@ -8,19 +8,15 @@ Must follow these steps to run the code:
 Step 1: open 4 terminals
 
 Step 2: 
-
 Run gradle Node1 --args=8000
 
 Step 3: 
-
 Run gradle Node1 --args=8001
 
 Step 4: 
-
 Run gradle Node2
 
 Step 5:
- 
 Run gradle Client
 
 In order to ensure that the code runs correctly you must first run node 1 on port 8001 and 8000, and then run the consensus (node 2) and then the client. 
