@@ -55,7 +55,7 @@ public class Peer {
 		if (args.length >= 3) {
 			twoArgs = true;
 			try {
-				System.out.println("args is greater than, equal to 2");
+				System.out.println("args is greater than/equal to 2");
 				port4Listening = Integer.parseInt(args[2]);
 				ports.add(port4Listening);
 				peer.updateListeningPeers(port);
@@ -78,8 +78,8 @@ public class Peer {
 			socket = new Socket("localhost", port4Listening);
 
 			JSONObject json = new JSONObject();
-			json.put("enter", "1");
-			json.put("data", port);
+			json.put("enter", "A");
+			json.put("info", port);
 
 			PrintWriter sout = new PrintWriter(socket.getOutputStream(), true);
 			sout.println(json.toString());
