@@ -36,34 +36,34 @@ public class ServerThread extends Thread{
 				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sock.getInputStream()));
 				JSONObject json = new JSONObject(bufferedReader.readLine());
 
-				if(json.getString("enter").equals("1")){
-					allPorts = json.getInt("data") + " ";
+				if(json.getString("enter").equals("A")){
+					allPorts = json.getInt("info") + " ";
 					System.out.println(allPorts);
-					port_new.add(json.getInt("data"));
+					port_new.add(json.getInt("info"));
 					System.out.println(json.toString());
 					Socket socket;
 					try{
-						socket = new Socket("localhost", json.getInt("data"));
+						socket = new Socket("localhost", json.getInt("info"));
 						new ClientThread(socket).start();
 						PrintWriter sout = new PrintWriter(socket.getOutputStream(), true);
 
 						JSONObject json2 = new JSONObject();
-						json2.put("enter","2");
+						json2.put("enter","B");
 						sout.println(json2.toString());
 					}catch(Exception e){
-						System.out.println("1");
+						System.out.println("A");
 					}
 				}
 
-				else if(json.getString("enter").equals("2")){
+				else if(json.getString("enter").equals("B")){
 					listToString(port_new);
 				}
-				else if(json.getString("enter").equals("3")){
+				else if(json.getString("enter").equals("C")){
 				}
-				else if(json.getString("enter").equals("4")){
+				else if(json.getString("enter").equals("D")){
 				}
 				else{
-					System.out.println("Sorry, incorrect JSON type");
+					System.out.println("Sorry, wrong JSON type");
 					System.exit(2);
 				}
 			}
@@ -76,7 +76,7 @@ public class ServerThread extends Thread{
 		try {
 			System.out.println( "..." +  listeningSockets.size() + message);
 			for (Socket s : listeningSockets) {
-				PrintWriter out = new PrintWriter(sock.getOutputStream(), true);
+				PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 				out.println(message);
 		     }
 		} catch(Exception e) {
@@ -94,7 +94,7 @@ public class ServerThread extends Thread{
 
 	public boolean listToString(LinkedList<Integer> list) throws IOException {
 		String answer = "";
-		for (Integer sock : list) {
+		for (Integer s : list) {
 			String temp  = list.get(s).toString();
 			answer += " " + temp;
 		}
