@@ -3,6 +3,9 @@ Screen Cast: https://youtu.be/Wc6l1v9N_lE
 This program allows for you to choose a selection of options
 You can play rock paper scissors or input your hometwon (two from part 1 of assignment)
 Or you can play "Guess that song!" The one I created for part 2.
+I was able to create a rock paper scissors game, enter in a hometown, and guess a lyric game.
+I was not able to do the third part of the assignment (10 point part).
+I am able to run this code on the terminal with gradle. 
 
 In order to run this code you must:
 
