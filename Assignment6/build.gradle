@@ -189,16 +189,3 @@ task runNode(type: JavaExec) {
   args servicePort
   args nodeName
 }
-
-
-// How I ran it:
-// ser321test.duckdns.org is my IP on the first AWS instance
-// on AWS instance: 
-
-// gradle runRegistryServer -PgrpcPort=8080
-
-// On a different AWS instance (could be the same one though just different ports)
-// gradle runNode -PnodeName="amehlhas" -PgrpcPort=8080 -PregistryHost="ser321test.duckdns.org" -PserviceHost="18.220.233.57" -PdiscoveryPort=8888 -PservicePort=8880
-
-// on my local machine
-//gradle runClientJava -PgrpcPort=8080 -PregistryHost="ser321test.duckdns.org" -PserviceHost="18.220.233.57" -PservicePort=8880
