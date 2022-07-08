@@ -1,3 +1,5 @@
+Screen Cast: https://youtu.be/Wc6l1v9N_lE
+
 This program allows for you to choose a selection of options
 You can play rock paper scissors or input your hometwon (two from part 1 of assignment)
 Or you can play "Guess that song!" The one I created for part 2.
