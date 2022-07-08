@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "service";
+option java_outer_classname = "SongProto";
+
+import "services/story.proto";
+
+package services;
+
+service user{
+    rpc login(LogReq)returns (ApiRes);
+    // rpc logout(Empty) returns (ApiRes);
+}
+
+message LogReq{
+    string use = 1;
+    string pas = 2;
+    // repeated string guess = 1;
+}
+
+
+
+
+message ApiRes{
+    string responseMsg=1;
+    int32 resCode=2;
+}
+
